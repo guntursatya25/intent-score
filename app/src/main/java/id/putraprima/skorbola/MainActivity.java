@@ -1,8 +1,10 @@
 package id.putraprima.skorbola;
 
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -45,10 +47,13 @@ public class MainActivity extends AppCompatActivity {
         awayLogo = findViewById(R.id.away_logo);
         buttonTeam = findViewById(R.id.btn_team);
 
+
+
         buttonTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //intent
+
+            if (awayImg != null && homeImg != null) {
                 hometeam = homeTeamInput.getText().toString();
                 awayteam = awayTeamInput.getText().toString();
                 Intent intent = new Intent(MainActivity.this, MatchActivity.class);
@@ -57,6 +62,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("homeImg", homeImg.toString());
                 intent.putExtra("awayImg", awayImg.toString());
                 startActivity(intent);
+            }else {
+                Context context = getApplicationContext();
+                CharSequence text = "Harus diisi semua!";
+                int duration = Toast.LENGTH_SHORT;
+
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+            }
             }
         });
 
@@ -84,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_CANCELED){
             Log.d(TAG, "Pilih gambar dicancel");

@@ -13,20 +13,12 @@ import android.widget.TextView;
 
 public class MatchActivity extends AppCompatActivity {
 
-    private String hometeam;
-    private String awayteam;
-    private String winner;
-    private int homescore;
-    private int awayscore;
-    private TextView scoreHome;
-    private TextView scoreAway;
-    private TextView homeText;
-    private TextView awayText;
-    private ImageView homeLogo;
-    private ImageView awayLogo;
-    private Button addHome1;
-    private Button addAway;
-    private Button cekResult;
+    private String hometeam, awayteam, winner;
+    private int homescore, awayscore;
+    private TextView scoreHome, scoreAway;
+    private TextView homeText, awayText;
+    private ImageView homeLogo, awayLogo;
+    private Button addHome1, addHome2, addHome3, addAway1,addAway2, addAway3, btnreset, cekResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +31,13 @@ public class MatchActivity extends AppCompatActivity {
         homeLogo = findViewById(R.id.home_logo);
         awayLogo = findViewById(R.id.away_logo);
         addHome1 = findViewById(R.id.btn_add_home_1);
-        addAway = findViewById(R.id.btn_add_away_1);
+        addHome2 = findViewById(R.id.btn_add_home_2);
+        addHome3 = findViewById(R.id.btn_add_home_3);
+        addAway1 = findViewById(R.id.btn_add_away_1);
+        addAway2 = findViewById(R.id.btn_add_away_2);
+        addAway3 = findViewById(R.id.btn_add_away_3);
         cekResult = findViewById(R.id.btn_result);
+        btnreset = findViewById(R.id.btn_reset);
 
         homescore = 0;
         awayscore = 0;
@@ -55,6 +52,16 @@ public class MatchActivity extends AppCompatActivity {
         homeLogo.setImageURI(Uri.parse(bundle.getString("homeImg")));
         awayLogo.setImageURI(Uri.parse(bundle.getString("awayImg")));
 
+        btnreset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                homescore = 0;
+                awayscore = 0;
+                scoreHome.setText(String.valueOf(homescore));
+                scoreAway.setText(String.valueOf(awayscore));
+            }
+        });
+
         addHome1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,10 +70,39 @@ public class MatchActivity extends AppCompatActivity {
             }
         });
 
-        addAway.setOnClickListener(new View.OnClickListener() {
+        addHome2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                homescore +=2;
+                scoreHome.setText(String.valueOf(homescore));
+            }
+        });
+        addHome3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                homescore +=3;
+                scoreHome.setText(String.valueOf(homescore));
+            }
+        });
+
+        addAway1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 awayscore += 1;
+                scoreAway.setText(String.valueOf(awayscore));
+            }
+        });
+        addAway2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                awayscore += 2;
+                scoreAway.setText(String.valueOf(awayscore));
+            }
+        });
+        addAway3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                awayscore += 3;
                 scoreAway.setText(String.valueOf(awayscore));
             }
         });
@@ -76,10 +112,10 @@ public class MatchActivity extends AppCompatActivity {
             public void onClick(View view) {
                 winner = "empty";
                 if(homescore > awayscore){
-                    winner = hometeam;
+                    winner = "Pemenang pertandingan "+hometeam;
                 }
                 else if (homescore == awayscore){
-                    winner = "draw";
+                    winner = "Hasil pertandingan draw";
                 }
                 else {
                     winner = awayteam;

@@ -8,8 +8,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/layout/activity_match.xml" value="0.20416666666666666" />
+        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/drawable/custom.xml" value="0.197" />
+        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/drawable/custom2.xml" value="0.197" />
+        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/drawable/custom3.xml" value="0.197" />
+        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/layout/activity_match.xml" value="0.25" />
+        <entry key="..\:/Android/PrakMobile/intent-score/app/src/main/res/layout/activity_result.xml" value="0.2546875" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/intent-score/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/intent-score/app/src/main/res/layout/activity_match.xml" value="0.25" />
         <entry key="..\:/Users/LENOVO/AndroidStudioProjects/intent-score/app/src/main/res/layout/activity_result.xml" value="0.17" />
