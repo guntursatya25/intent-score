@@ -24,7 +24,7 @@ public class MatchActivity extends AppCompatActivity {
     private TextView awayText;
     private ImageView homeLogo;
     private ImageView awayLogo;
-    private Button addHome;
+    private Button addHome1;
     private Button addAway;
     private Button cekResult;
 
@@ -38,8 +38,8 @@ public class MatchActivity extends AppCompatActivity {
         scoreAway = findViewById(R.id.score_away);
         homeLogo = findViewById(R.id.home_logo);
         awayLogo = findViewById(R.id.away_logo);
-        addHome = findViewById(R.id.btn_add_home);
-        addAway = findViewById(R.id.btn_add_away);
+        addHome1 = findViewById(R.id.btn_add_home_1);
+        addAway = findViewById(R.id.btn_add_away_1);
         cekResult = findViewById(R.id.btn_result);
 
         homescore = 0;
@@ -55,7 +55,7 @@ public class MatchActivity extends AppCompatActivity {
         homeLogo.setImageURI(Uri.parse(bundle.getString("homeImg")));
         awayLogo.setImageURI(Uri.parse(bundle.getString("awayImg")));
 
-        addHome.setOnClickListener(new View.OnClickListener() {
+        addHome1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 homescore += 1;
