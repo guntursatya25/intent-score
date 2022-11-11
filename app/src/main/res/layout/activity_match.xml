@@ -42,7 +42,6 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:textSize="110sp"
-        android:background="cus3"
         android:textColor="@color/oren"
         app:layout_constraintLeft_toRightOf="@+id/guideline"
         app:layout_constraintTop_toTopOf="parent"

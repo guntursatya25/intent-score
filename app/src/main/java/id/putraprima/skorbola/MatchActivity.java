@@ -118,7 +118,7 @@ public class MatchActivity extends AppCompatActivity {
                     winner = "Hasil pertandingan draw";
                 }
                 else {
-                    winner = awayteam;
+                    winner = "Pemenang pertandingan "+awayteam;
                 }
 
                 Intent intent = new Intent(MatchActivity.this, ResultActivity.class);

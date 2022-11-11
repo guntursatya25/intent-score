@@ -26,15 +26,11 @@ public class MainActivity extends AppCompatActivity {
     private static final int AWAY_REQUEST_CODE = 2;
     private static final String TAG = MainActivity.class.getCanonicalName();
 
-    private String hometeam;
-    private String awayteam;
-    private EditText homeTeamInput;
-    private EditText awayTeamInput;
-    private ImageView homeLogo;
-    private ImageView awayLogo;
+    private String hometeam, awayteam;
+    private EditText homeTeamInput, awayTeamInput;
+    private ImageView homeLogo, awayLogo;
     private Button buttonTeam;
-    private Uri homeImg;
-    private  Uri awayImg;
+    private Uri homeImg, awayImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,24 +43,33 @@ public class MainActivity extends AppCompatActivity {
         awayLogo = findViewById(R.id.away_logo);
         buttonTeam = findViewById(R.id.btn_team);
 
-
-
         buttonTeam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-            if (awayImg != null && homeImg != null) {
                 hometeam = homeTeamInput.getText().toString();
                 awayteam = awayTeamInput.getText().toString();
+            if (awayImg != null && homeImg != null) {
+                if (!hometeam.equals("") &&  !awayteam.equals("")){
+
                 Intent intent = new Intent(MainActivity.this, MatchActivity.class);
                 intent.putExtra("namahome", hometeam);
                 intent.putExtra("namaaway", awayteam);
                 intent.putExtra("homeImg", homeImg.toString());
                 intent.putExtra("awayImg", awayImg.toString());
                 startActivity(intent);
+
+                }else{
+                    Context context = getApplicationContext();
+                    CharSequence text = "Nama team harus diisi semua!";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.show();
+                }
+
             }else {
                 Context context = getApplicationContext();
-                CharSequence text = "Harus diisi semua!";
+                CharSequence text = "Logo dan nama team harus diisi semua!";
                 int duration = Toast.LENGTH_SHORT;
 
                 Toast toast = Toast.makeText(context, text, duration);
